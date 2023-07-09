@@ -2,13 +2,10 @@ import { loadFileNames } from "@/lib/loadFileNames";
 import { loadPost } from "@/lib/loadPost";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
 
 export default function Page({
   postDetail,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const router = useRouter();
-
   return (
     <>
       <p dangerouslySetInnerHTML={{ __html: postDetail.content }}></p>
