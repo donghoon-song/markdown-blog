@@ -1,4 +1,4 @@
-import { loadPosts } from "@/lib/loadPosts";
+import { loadFileNames } from "@/lib/loadFileNames";
 import Link from "next/link";
 
 interface Props {
@@ -22,7 +22,7 @@ export default function Blog({ posts }: Props) {
 }
 
 export async function getStaticProps() {
-  const posts = await loadPosts();
+  const posts = await loadFileNames();
   // TODO: 일단 fileName만 가져오고, 나중에 리스트에서 필요한 데이터 추가
   const fileNames = posts.map((post) => post.replace(/\.md$/, ""));
 
