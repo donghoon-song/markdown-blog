@@ -1,7 +1,7 @@
-import { promises as fs } from "fs";
+import fs from "fs";
 import path from "path";
 
-export async function loadPosts() {
-  const posts = await fs.readdir(path.join(process.cwd(), "__posts"));
+export function loadPosts() {
+  const posts = fs.readdirSync(path.join(process.cwd(), "__posts"));
   return posts;
 }
